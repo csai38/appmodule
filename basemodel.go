@@ -20,6 +20,6 @@ type BaseModel struct {
 type BaseModule struct {
 	db         *gorm.DB
 	moduleMap  map[string]interface{}
-	moduleDeps []string
+	moduleDeps []map[string]string
 	version    string
 }
