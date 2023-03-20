@@ -2,6 +2,7 @@ package appmodule
 
 import (
 	"github.com/google/uuid"
+	"gorm.io/gorm"
 	"time"
 )
 
@@ -16,7 +17,7 @@ type BaseModel struct {
 	RemoverId uuid.UUID
 }
 
-type BaseModule struct{
-	db *gorm.db
-	moduleMap map[string] interface{}
+type BaseModule struct {
+	db        *gorm.DB
+	moduleMap map[string]interface{}
 }
