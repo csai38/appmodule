@@ -1,4 +1,4 @@
-module dev.tks.one/skarp/appmodule
+module github.com/csai38/appmodule
 
 go 1.20
 
