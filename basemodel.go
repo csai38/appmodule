@@ -15,3 +15,8 @@ type BaseModel struct {
 	UpdaterId uuid.UUID
 	RemoverId uuid.UUID
 }
+
+type BaseModule struct{
+	db *gorm.db
+	moduleMap map[string] interface{}
+}
