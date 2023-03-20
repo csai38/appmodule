@@ -18,6 +18,8 @@ type BaseModel struct {
 }
 
 type BaseModule struct {
-	db        *gorm.DB
-	moduleMap map[string]interface{}
+	db         *gorm.DB
+	moduleMap  map[string]interface{}
+	moduleDeps []string
+	version    string
 }
