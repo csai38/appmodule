@@ -11,15 +11,15 @@ type BaseModel struct {
 	CreatedAt time.Time `gorm:"not null"`
 	UpdatedAt time.Time `gorm:"not null"`
 	RemoveAt  time.Time `gorm:"default:null"`
-	GroupId   uuid.UUID `gorm:"default:0"`
+	GroupId   uuid.UUID `gorm:"default:null"`
 	CreatorId uuid.UUID
 	UpdaterId uuid.UUID
 	RemoverId uuid.UUID
 }
 
 type BaseModule struct {
-	db         *gorm.DB
-	moduleMap  map[string]interface{}
-	moduleDeps []map[string]string
-	version    string
+	Db         *gorm.DB
+	ModuleMap  map[string]interface{}
+	ModuleDeps []map[string]string //format dependency key map - module name, value - version
+	Version    string              // module version format vX.X.X-YYY
 }
