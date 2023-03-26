@@ -23,3 +23,33 @@ type BaseModule struct {
 	ModuleDeps []map[string]string //format dependency key map - module name, value - version
 	Version    string              // module version format vX.X.X-YYY
 }
+
+func (m BaseModule) ResponseData(resError error, responseBody any, metaData ...interface{}) DataResponse {
+	errMsg := ""
+	if resError != nil {
+		errMsg = resError.Error()
+	}
+	if responseBody == nil {
+		return DataResponse{false, nil, nil, errMsg}
+	}
+	var meta any = nil
+	if metaData != nil {
+		meta = metaData
+	}
+	return DataResponse{true, responseBody, meta, errMsg}
+}
+
+func (m BaseModule) ResponseTree(resError error, responseBody any, metaData any) TreeResponse {
+	errMsg := ""
+	if resError != nil {
+		errMsg = resError.Error()
+	}
+	if responseBody == nil {
+		return TreeResponse{false, nil, nil, errMsg}
+	}
+	var meta any = nil
+	if metaData != nil {
+		meta = metaData
+	}
+	return TreeResponse{true, responseBody, meta, errMsg}
+}
