@@ -16,8 +16,9 @@ type BaseModel struct {
 	UpdaterId uuid.UUID
 	RemoverId uuid.UUID
 }
+
 type SysModules struct {
-	*BaseModel
+	BaseModel
 	ModuleName string
 	Version    string
 	ApiMap     map[string][]map[string]string
